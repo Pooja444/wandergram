@@ -11,7 +11,7 @@ function Post(props) {
     const [val, setVal] = useState(0)
     
     return (
-        <div className="CardMain">
+        <div className="CardMain" id={postId}>
             <Card className="CardContainer">
                 <Card.Header className="Header">
                     {props.post.title}

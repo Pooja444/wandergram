@@ -1,7 +1,7 @@
 import WGNavBar from '../navbar/Navbar';
 import Form from 'react-bootstrap/Form';
 import { Button, Alert, Container } from 'react-bootstrap'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 
 import './Create.css'
@@ -10,7 +10,9 @@ function Create() {
     const [username, setUsername] = useState("")
     const [title, setTitle] = useState("")
     const [content, setContent] = useState("")
-    const sendPostUrl = 'https://wandergram.explore444.workers.dev/posts'
+    const sendPostUrl = 'http://localhost:8787/posts'
+
+    const navigate = useNavigate();
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -18,20 +20,19 @@ function Create() {
         const requestOptions = {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
-                'Origin': 'http://192.168.0.11:3000/'
+                'Origin': 'http://localhost:3000/'
             },
-            mode: 'no-cors',
             body: JSON.stringify({ username, title, content })
         };
         
         fetch(sendPostUrl, requestOptions)
-            .then(response => {
-                return (
-                    <Alert variant="success">
-                        <Alert.Heading>Post submitted successfully!</Alert.Heading>
-                    </Alert>
-                )
+            .then(async response => {
+                const postResponse = await response.json()
+                if(postResponse.status === 200) {
+                    navigate(`../explore#${postResponse.response.id}`)
+                } else {
+                    window.alert = `Error code: ${postResponse.status}: ${postResponse.message}`
+                }
             })
             .catch(error => console.log('Form submit error', error))
     };

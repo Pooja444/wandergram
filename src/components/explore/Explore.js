@@ -10,7 +10,7 @@ function Explore() {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        fetch("https://wandergram.explore444.workers.dev/posts")
+        fetch("http://localhost:8787/posts")
             .then(res => res.json())
             .then(
                 (data) => {

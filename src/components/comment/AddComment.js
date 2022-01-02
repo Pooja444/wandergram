@@ -12,15 +12,13 @@ function AddComment(props) {
 
     const handleSubmit = async event => {
         event.preventDefault();
-        const sendCommentUrl = `https://wandergram.explore444.workers.dev/post/${props.postId}/comment`
+        const sendCommentUrl = `http://localhost:8787/post/${props.postId}/comment`
 
         const requestOptions = {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
-                'Origin': 'http://192.168.0.11:3000/'
+                'Origin': 'http://localhost:3000/'
             },
-            mode: 'no-cors',
             body: JSON.stringify({
                 "content": content,
                 "username": username
@@ -28,31 +26,17 @@ function AddComment(props) {
         }
 
         fetch(sendCommentUrl, requestOptions)
-            .then(response => {
-                return response
+            .then(async response => {
+                const data = await response.json()
+                if(data.status === 200) {
+                    let allComments = props.comments
+                    if(allComments === undefined) allComments = []
+                    allComments.push(data.response)
+                    props.setComments(allComments)
+                    props.setVal(props.val + 1)
+                }
             })
-            .then((data) => {
-                console.log(data)
-                console.log(data ? JSON.parse(data) : {})
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-
-        // fetch(sendCommentUrl, requestOptions)
-        //     .then(async response => {
-        //         const data = await response.json()
-        //         console.log(data)
-        //         // if(response.status === 200) {
-        //         //     let allComments = props.comments
-        //         //     if(allComments === undefined) allComments = []
-        //         //     allComments.push(response.comment)
-        //         //     props.setComments(allComments)
-        //         //     props.setVal(props.val + 1)
-        //         //     window.alert("Comment added successfully!")
-        //         // }
-        //     })
-        //     .catch(error => console.log('Form submit error', error))
+            .catch(error => console.log('Form submit error', error))
     }
 
     return (
