@@ -1,0 +1,14 @@
+.CommentSubmitButtons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.CommentSubmit {
+    flex: 1;
+}
+
+.CommentSubmitBy {
+    margin-left: 20px;
+}

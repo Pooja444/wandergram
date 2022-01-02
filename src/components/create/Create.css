@@ -1,0 +1,60 @@
+body {
+    background: url('../../assets/napali_bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.PostForm {
+    margin-top: 70px;
+    opacity: 0.8;
+}
+
+.ShareText {
+    font-size: calc(16px + 2vmin);
+    font-weight: 300;
+}
+
+.PostTitle {
+    margin-top: 20px;
+}
+
+.PostContent {
+    margin-top: 20px;
+    height: 45vh;
+}
+
+.PostSubmitButtons {
+    width: 40%;
+    display: flex;
+}
+
+.PostSubmitButton {
+    flex: auto;
+    width: 12vw;
+    border-radius: 0;
+    background-color: rgb(63, 141, 100);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 6vh;
+    font-size: calc(8px + 2vmin);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 4px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+    color: white;
+    margin-top: 30px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.PostSubmitButton:hover {
+    background-color: rgb(39, 88, 62);
+    -webkit-transition: background-color 200ms linear;
+    transition: background-color 200ms linear;
+    color: white;
+}
+
+.CancelButton {
+    margin-left: 30px;
+}

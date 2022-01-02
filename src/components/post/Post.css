@@ -1,0 +1,42 @@
+.CardContainer {
+    width: 60vw;
+    margin-top: 40px;
+}
+
+.Header {
+    width: 100%;
+}
+
+.User {
+    margin-left: 20px;
+    color: rgb(103, 110, 103);
+}
+
+.UpVote {
+    font-size: calc(10px + 2vmin);
+    cursor: pointer;
+}
+
+.DownVote {
+    font-size: calc(10px + 2vmin);
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.UpVote:hover {
+    color: green;
+}
+
+.DownVote:hover {
+    color: green;
+}
+
+.ShowCommentsText:hover {
+    color: rgb(95, 95, 95);
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.CommentsSection {
+    padding: 0;
+}

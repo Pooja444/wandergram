@@ -1,0 +1,64 @@
+.App {
+    text-align: center;
+  }
+  
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  
+  .App-header {
+    background: url(../../assets/wandergram_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: zoom 30s infinite;
+    -webkit-animation: zoom 30s infinite;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  .Welcome {
+    font-family: countryside;
+    font-size: calc(70px + 2vmin);
+  }
+  
+  .Tagline {
+    margin-top: 40px;
+    font-size: calc(16px + 2vmin);
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes zoom {
+    0% {
+      background-size: 150%;
+    }
+    50% {
+      background-size: 100%;
+    }
+    100% {
+      background-size: 150%;
+    }
+  }

@@ -1,0 +1,83 @@
+.Home-background {
+    background: url(../../assets/wandergram_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: zoom 30s infinite;
+    -webkit-animation: zoom 30s infinite;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+}
+  
+.Welcome {
+    font-family: countryside;
+    font-size: calc(70px + 2vmin);
+}
+  
+.Tagline {
+    margin-top: 40px;
+    font-size: calc(16px + 2vmin);
+}
+
+.ActionButtons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+.PostActionButton {
+    flex: auto;
+    width: 25vw;
+    border-radius: 0;
+    background-color: rgb(63, 141, 100, 0.65);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 8vh;
+    font-size: calc(10px + 2vmin);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 4px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+    color: white;
+    margin-top: 30px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.PostActionButton:hover {
+    background-color: rgb(39, 88, 62, 0.8);
+    -webkit-transition: background-color 200ms linear;
+    transition: background-color 200ms linear;
+    color: white;
+}
+  
+.RightAction {
+    width: 25vw;
+    margin-left: 30px;
+}
+  
+@keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}
+  
+@keyframes zoom {
+    0% {
+      background-size: 150%;
+    }
+    50% {
+      background-size: 100%;
+    }
+    100% {
+      background-size: 150%;
+    }
+}
