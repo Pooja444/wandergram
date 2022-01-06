@@ -18,7 +18,7 @@ function Explore() {
         fetch("http://localhost:8787/posts", {
             method: 'GET',
             headers: {
-                'Origin': 'http://localhost:3000/'
+                'Origin': 'https://wandergram.pages.dev/'
             }
         })
             .then(res => res.json())

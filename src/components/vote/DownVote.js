@@ -25,7 +25,7 @@ function DownVote(props) {
         const requestOptions = {
             method: 'POST',
             headers: {
-                'Origin': 'http://localhost:3000/'
+                'Origin': 'https://wandergram.pages.dev/'
             },
             body: JSON.stringify(voteBody)
         }
