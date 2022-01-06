@@ -18,7 +18,7 @@ function Explore() {
         fetch("https://wandergram.explore444.workers.dev/posts", {
             method: 'GET',
             headers: {
-                'Origin': 'https://wandergram.pages.dev/'
+                'Origin': 'https://wandergram.pages.dev'
             }
         })
             .then(res => res.json())

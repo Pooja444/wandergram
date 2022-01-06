@@ -25,7 +25,7 @@ function Vote(props) {
         const requestOptions = {
             method: 'POST',
             headers: {
-                'Origin': 'https://wandergram.pages.dev/'
+                'Origin': 'https://wandergram.pages.dev'
             },
             body: JSON.stringify(voteBody)
         }
