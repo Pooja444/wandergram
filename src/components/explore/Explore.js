@@ -15,7 +15,7 @@ function Explore() {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:8787/posts", {
+        fetch("https://wandergram.explore444.workers.dev/posts", {
             method: 'GET',
             headers: {
                 'Origin': 'https://wandergram.pages.dev/'

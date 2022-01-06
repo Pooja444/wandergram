@@ -11,7 +11,7 @@ function AddComment(props) {
 
     const handleSubmit = async event => {
         event.preventDefault();
-        const sendCommentUrl = `http://localhost:8787/post/${props.postId}/comment`
+        const sendCommentUrl = `https://wandergram.explore444.workers.dev/post/${props.postId}/comment`
 
         const requestOptions = {
             method: 'POST',

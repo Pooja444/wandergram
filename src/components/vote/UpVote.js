@@ -16,7 +16,7 @@ function Vote(props) {
     const handleVote = event => {
         event.preventDefault();
 
-        const voteUrl = `http://localhost:8787/post/${props.postId}/vote`
+        const voteUrl = `https://wandergram.explore444.workers.dev//post/${props.postId}/vote`
         const voteBody = {
             "username": username,
             "type": "upvote"

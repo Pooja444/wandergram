@@ -24,7 +24,7 @@ function Create() {
             </Modal.Dialog>
         )
     }
-    const sendPostUrl = 'http://localhost:8787/posts'
+    const sendPostUrl = 'https://wandergram.explore444.workers.dev/posts'
 
     const handleSubmit = event => {
         event.preventDefault();
