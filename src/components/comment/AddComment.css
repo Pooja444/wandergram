@@ -1,4 +1,4 @@
-.CommentSubmitButtons {
+.CommentSubmission {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -6,9 +6,16 @@
 }
 
 .CommentSubmit {
+    margin-left: 10px;
     flex: 1;
 }
 
-.CommentSubmitBy {
-    margin-left: 20px;
+.CommentSubmitText {
+    font-size: 14px;
+}
+
+.CommentContent {
+    flex: 15;
+    min-height: 8vh;
+    max-height: 8vh;
 }

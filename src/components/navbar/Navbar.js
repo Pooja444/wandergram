@@ -1,9 +1,14 @@
+import { useState } from "react"
 import { Navbar, Container, Nav } from "react-bootstrap"
 import { Link } from "react-router-dom"
 
+import "bootstrap-icons/font/bootstrap-icons.css";
 import './Navbar.css'
 
 function WGNavBar() {
+
+    const [username] = useState(localStorage.getItem("username"))
+
     return (
         <Navbar expand="lg" fixed="top" className="WGNavBar">
             <Container>
@@ -17,6 +22,7 @@ function WGNavBar() {
                         <Link to="/create" className="NavBarItem">Create Post</Link>
                         <Link to="/explore" className="NavBarItem">Explore Posts</Link>
                     </Nav>
+                    <Nav className="ml-auto">Welcome {username}!</Nav>
                 </Navbar.Collapse>
             </Container>
         </Navbar>

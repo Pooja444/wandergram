@@ -1,14 +1,21 @@
 import './Post.css'
-import { Card, Accordion } from 'react-bootstrap'
-import "bootstrap-icons/font/bootstrap-icons.css";
-import Comment from '../comment/Comment';
-import AddComment from '../comment/AddComment';
 import React, { useState } from 'react';
+
+import { Card } from 'react-bootstrap'
+import "bootstrap-icons/font/bootstrap-icons.css";
+
+import AddComment from '../comment/AddComment';
+import UpVote from '../vote/UpVote'
+import DownVote from '../vote/DownVote'
+import CommentSection from '../comment/CommentSection';
 
 function Post(props) {
     const [comments, setComments] = useState(props.post.comments)
+    const [isExpanded, setIsExpanded] = useState("1") // State 1 = false, state 0 = true
     const [postId] = useState(props.post.id)
     const [val, setVal] = useState(0)
+    const [votes, setVotes] = useState(props.post.votes)
+    const [commentPostId] = useState(`comment-${postId}`)
     
     return (
         <div className="CardMain" id={postId}>
@@ -22,23 +29,13 @@ function Post(props) {
                         {props.post.content}
                     </Card.Text>
                     <div>
-                        <i className="bi bi-arrow-up-circle UpVote"></i>
-                        <i className="bi bi-arrow-down-circle DownVote"></i>
+                        <UpVote postId={postId} votes={votes} setVotes={setVotes}></UpVote>
+                        <DownVote postId={postId} votes={votes} setVotes={setVotes}></DownVote>
                     </div>
-                    <Accordion flush className="CommentsSection">
-                        <Accordion.Item eventKey="0">
-                            <Accordion.Header className="ShowCommentsText">Show all comments...</Accordion.Header>
-                            <Accordion.Body>
-                                {comments !== undefined ?
-                                    comments.map(comment => (
-                                        <Comment comment={comment} key={comment.id}></Comment>
-                                    )) : <div>Be the first to add a comment!</div>}
-                            </Accordion.Body>
-                        </Accordion.Item>
-                    </Accordion>
+                    <CommentSection comments={comments} key={commentPostId} isExpanded={isExpanded}></CommentSection>
                 </Card.Body>
                 <Card.Footer>
-                    <AddComment postId={postId} setComments={setComments} comments={comments} val={val} setVal={setVal}></AddComment>
+                    <AddComment postId={postId} setComments={setComments} comments={comments} val={val} setVal={setVal} setIsExpanded={setIsExpanded}></AddComment>
                 </Card.Footer>
             </Card>
         </div>

@@ -1,14 +1,13 @@
 import './AddComment.css'
 import Form from 'react-bootstrap/Form';
-import { Button, Container, Alert } from 'react-bootstrap'
+import { Button, Container } from 'react-bootstrap'
 import React, { useState } from 'react';
 
 function AddComment(props) {
-    const [username, setUsername] = useState("")
+    const [username] = useState(localStorage.getItem("username"))
     const [content, setContent] = useState("")
 
     const handleContentChange = event => setContent(event.target.value)
-    const handleUserChange = event => setUsername(event.target.value)
 
     const handleSubmit = async event => {
         event.preventDefault();
@@ -33,21 +32,23 @@ function AddComment(props) {
                     if(allComments === undefined) allComments = []
                     allComments.push(data.response)
                     props.setComments(allComments)
+                    props.setIsExpanded("0")
                     props.setVal(props.val + 1)
+                } else {
+                    window.alert("Couldn't add comment, please try again: " + data.message)
                 }
             })
-            .catch(error => console.log('Form submit error', error))
+            .catch(error => window.alert("Couldn't add comment, please try again: " + error))
     }
 
     return (
         <Container>
             <Form onSubmit={handleSubmit}>
-                <Form.Group controlId="formName">
+                <Form.Group controlId="formName" className="CommentSubmission">
                     <Form.Control required as="textarea" type="text" placeholder="Write a comment..." className="CommentContent" value={content} onChange={handleContentChange} />
-                    <div className="CommentSubmitButtons">
-                        <Form.Control type="text" required placeholder="What's your username?" className="CommentSubmit" value={username} onChange={handleUserChange} />
-                        <Button className="CommentSubmit CommentSubmitBy" type="submit">Comment</Button>
-                    </div>
+                    <Button className="CommentSubmit" type="submit">
+                        <span className="CommentSubmitText">Comment</span>
+                    </Button>
                 </Form.Group>
             </Form>
         </Container>

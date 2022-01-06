@@ -1,0 +1,17 @@
+.UpVote {
+    font-size: calc(6px + 2vmin);
+    cursor: pointer;
+}
+
+.UpVote:hover {
+    color: green;
+}
+
+.UpVotesNumber {
+    margin-left: 5px;
+    font-size: calc(3px + 2vmin);
+    font-weight: 300;
+    font-style: normal;
+    color: rgb(109, 109, 109);
+    cursor: auto;
+}

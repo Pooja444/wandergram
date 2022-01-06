@@ -1,18 +1,30 @@
 import WGNavBar from '../navbar/Navbar';
-import Form from 'react-bootstrap/Form';
-import { Button, Alert, Container } from 'react-bootstrap'
+import { Button, Container, Form, Modal } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 
 import './Create.css'
 
 function Create() {
-    const [username, setUsername] = useState("")
+
+    const [username] = useState(localStorage.getItem("username"))
     const [title, setTitle] = useState("")
     const [content, setContent] = useState("")
-    const sendPostUrl = 'http://localhost:8787/posts'
-
     const navigate = useNavigate();
+
+    if (username === null || username === undefined || username.trim() === "") {
+        return (
+            <Modal.Dialog>
+                <Modal.Body>
+                    <p>No username entered before creating/exploring posts. This should not happen, please go to home and enter one!</p>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Link to="/" className="HomeButton">Home</Link>
+                </Modal.Footer>
+            </Modal.Dialog>
+        )
+    }
+    const sendPostUrl = 'http://localhost:8787/posts'
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -24,20 +36,19 @@ function Create() {
             },
             body: JSON.stringify({ username, title, content })
         };
-        
+
         fetch(sendPostUrl, requestOptions)
             .then(async response => {
                 const postResponse = await response.json()
-                if(postResponse.status === 200) {
+                if (postResponse.status === 200) {
                     navigate(`../explore#${postResponse.response.id}`)
                 } else {
                     window.alert = `Error code: ${postResponse.status}: ${postResponse.message}`
                 }
             })
-            .catch(error => console.log('Form submit error', error))
+            .catch(error => window.alert = `Something went wrong: ${error}`)
     };
 
-    const handleUserChange = event => setUsername(event.target.value)
     const handleTitleChange = event => setTitle(event.target.value)
     const handleContentChange = event => setContent(event.target.value)
 
@@ -48,7 +59,6 @@ function Create() {
                 <p className="ShareText">What do you want to share today?</p>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="formName">
-                        <Form.Control required type="text" placeholder="What's your username?" className="PostTitle" value={username} onChange={handleUserChange} />
                         <Form.Control required type="text" placeholder="Give a 'wanderful' title!" className="PostTitle" value={title} onChange={handleTitleChange} />
                         <Form.Control required as="textarea" type="text" placeholder="Share your travel experience..." className="PostContent" value={content} onChange={handleContentChange} />
                         <div className="PostSubmitButtons">

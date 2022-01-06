@@ -1,0 +1,17 @@
+.DownVote {
+    font-size: calc(6px + 2vmin);
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.DownVote:hover {
+    color: green;
+}
+
+.DownVotesNumber {
+    margin-left: 5px;
+    font-size: calc(3px + 2vmin);
+    font-weight: 300;
+    font-style: normal;
+    color: rgb(109, 109, 109);
+}
