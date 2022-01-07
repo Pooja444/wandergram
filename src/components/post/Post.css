@@ -14,7 +14,7 @@
 
 .PostDateTime {
     font-size: calc(2px + 2vmin);
-    color: rgb(141, 163, 192);
+    color: rgb(121, 141, 105)
 }
 
 .ShowCommentsText:hover {

@@ -8,6 +8,7 @@ import AddComment from '../comment/AddComment';
 import UpVote from '../vote/UpVote'
 import DownVote from '../vote/DownVote'
 import CommentSection from '../comment/CommentSection';
+import { format } from 'date-fns'
 
 function Post(props) {
     const [comments, setComments] = useState(props.post.comments)
@@ -23,7 +24,7 @@ function Post(props) {
                 <Card.Header className="Header">
                     {props.post.title}
                     <i><span className="User">~ {props.post.username}</span></i>
-                    <span className="float-end PostDateTime">at {props.post.datetime}</span>
+                    <span className="float-end PostDateTime">{props.post.datetime !== undefined ? format(new Date(props.post.datetime), 'MMMM Do, yyyy h:mma') : ""}</span>
                 </Card.Header>
                 <Card.Body>
                     <Card.Text>

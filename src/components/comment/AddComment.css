@@ -6,8 +6,15 @@
 }
 
 .CommentSubmit {
-    margin-left: 10px;
+    margin-left: 20px;
     flex: 1;
+    width: 12vw;
+    border: 0 !important;
+    background-color: rgb(63, 141, 100) !important;
+    cursor: pointer;
+    color: white !important;
+    border-radius: 10px !important;
+    text-decoration: none;
 }
 
 .CommentSubmitText {
