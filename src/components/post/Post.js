@@ -23,6 +23,7 @@ function Post(props) {
                 <Card.Header className="Header">
                     {props.post.title}
                     <i><span className="User">~ {props.post.username}</span></i>
+                    <span className="float-end PostDateTime">at {props.post.datetime}</span>
                 </Card.Header>
                 <Card.Body>
                     <Card.Text>

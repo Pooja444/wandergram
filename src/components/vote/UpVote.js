@@ -16,7 +16,7 @@ function Vote(props) {
     const handleVote = event => {
         event.preventDefault();
 
-        const voteUrl = `https://wandergram.explore444.workers.dev//post/${props.postId}/vote`
+        const voteUrl = `https://wandergram.explore444.workers.dev/post/${props.postId}/vote`
         const voteBody = {
             "username": username,
             "type": "upvote"
@@ -25,7 +25,7 @@ function Vote(props) {
         const requestOptions = {
             method: 'POST',
             headers: {
-                'Origin': 'https://wandergram.pages.dev'
+                'Origin': "https://wandergram.pages.dev"
             },
             body: JSON.stringify(voteBody)
         }

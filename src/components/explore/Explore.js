@@ -18,14 +18,14 @@ function Explore() {
         fetch("https://wandergram.explore444.workers.dev/posts", {
             method: 'GET',
             headers: {
-                'Origin': 'https://wandergram.pages.dev'
+                'Origin': "https://wandergram.pages.dev"
             }
         })
             .then(res => res.json())
             .then(
                 (data) => {
                     setIsLoaded(true);
-                    setPosts(data);
+                    setPosts(data.sort((post1, post2) => new Date(post2.datetime) - new Date(post1.datetime)));
                 },
                 (error) => {
                     setIsLoaded(true);
